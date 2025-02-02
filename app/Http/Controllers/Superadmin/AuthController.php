@@ -24,7 +24,7 @@ class AuthController extends Controller
             return redirect()->route('superadmin.dashboard');
         }
 
-        return back()->withErrors(['email' => 'Invalid credentials.']);
+        return back()->withError('Invalid credentials');
     }
 
     public function logout()

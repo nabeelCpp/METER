@@ -5,6 +5,7 @@
     <div class="container-fluid">
         <div class="row h-100 align-items-center justify-content-center" style="min-height: 100vh;">
             <div class="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-4">
+                @include('superadmin.layouts.inc.alerts')
                 <div class="bg-light rounded p-4 p-sm-5 my-4 mx-3">
                     <div class="d-flex align-items-center justify-content-between mb-3">
                         <a href="{{ route('superadmin.login') }}" class="">
@@ -12,10 +13,6 @@
                         </a>
                         <h3>Sign In</h3>
                     </div>
-
-                    @if(session('error'))
-                        <div class="alert alert-danger">{{ session('error') }}</div>
-                    @endif
 
                     <form method="POST" action="{{ route('superadmin.login') }}">
                         @csrf
