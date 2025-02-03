@@ -7,11 +7,11 @@
             <div class="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-4">
                 @include('superadmin.layouts.inc.alerts')
                 <div class="bg-light rounded p-4 p-sm-5 my-4 mx-3">
-                    <div class="d-flex align-items-center justify-content-between mb-3">
-                        <a href="{{ route('superadmin.login') }}" class="">
-                            {!! site_logo('w-50 h-25') !!}
+                    <div class="row align-items-center justify-content-between mb-3">
+                        <a href="{{ route('superadmin.login') }}" class="col-6">
+                            {!! site_logo('w-75 h-50') !!}
                         </a>
-                        <h3>Sign In</h3>
+                        <h3 class="col-6">Sign In</h3>
                     </div>
 
                     <form method="POST" action="{{ route('superadmin.login') }}">
