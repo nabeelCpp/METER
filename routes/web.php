@@ -10,7 +10,7 @@ Route::prefix('superadmin')->as('superadmin.')->group(function () {
     Route::post('/login', [SuperAdminAuthController::class, 'login']);
     Route::post('/logout', [SuperAdminAuthController::class, 'logout'])->name('logout');
 
-    Route::middleware('auth:superadmin')->group(function () {
+    Route::middleware('auth.custom:superadmin')->group(function () {
         Route::get('/', [SuperadminDashboard::class, 'index'])->name('dashboard');
         Route::prefix('admins')->name('admins.')->group(function () {
             // List all admins
