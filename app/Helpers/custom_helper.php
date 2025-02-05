@@ -31,3 +31,9 @@ if(!function_exists('admin_status')) {
         return Admin::STATUS[$status];
     }
 }
+
+if(!function_exists('admin_asset')) {
+    function admin_asset($path) {
+        return asset('template/'.$path);
+    }
+}

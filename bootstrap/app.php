@@ -3,7 +3,7 @@
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
-use App\Http\Middleware\CustomAuthenticate;
+use App\Http\Middleware\{CustomAuthenticate, RedirectIfAuthenticated};
 
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
@@ -15,6 +15,7 @@ return Application::configure(basePath: dirname(__DIR__))
         // Register Custom Authentication Middleware
         $middleware->alias([
             'auth.custom' => CustomAuthenticate::class,
+            'guest.custom' => RedirectIfAuthenticated::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
