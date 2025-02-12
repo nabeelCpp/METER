@@ -2,7 +2,14 @@
 
 use App\Http\Controllers\Admin\{AdminController, AuthController as AdminAuthController, Dashboard as AdminDashboardController};
 use App\Http\Controllers\Superadmin\{AuthController as SuperAdminAuthController, Dashboard as SuperadminDashboardController};
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
+Route::get('/lang/{locale}', function ($locale) {
+    if (in_array($locale, ['en', 'ar'])) {
+        session(['locale' => $locale]);
+    }
+    return redirect()->back();
+})->name('lang.switch');
 
 Route::prefix('superadmin')->as('superadmin.')->group(function () {
     Route::middleware('guest.custom:superadmin')->get('/login', [SuperAdminAuthController::class, 'showLoginForm'])->name('login');
@@ -33,14 +40,14 @@ Route::prefix('superadmin')->as('superadmin.')->group(function () {
     });
 });
 
-Route::prefix('admin')->as('admin.')->group(function () {
+Route::prefix('admin')->as('admin.')->middleware('locale')->group(function () {
     // Show the admin login form
     Route::middleware('guest.custom:admin')->get('/login', [AdminAuthController::class, 'showLoginForm'])->name('login');
     Route::post('/logout', [AdminAuthController::class, 'logout'])->name('logout');
     // Process the admin login form submission
     Route::middleware('guest.custom:admin')->post('/login', [AdminAuthController::class, 'login'])->name('login.submit');
     Route::middleware('auth.custom:admin')->group(function () {
-        Route::get('/', [AdminDashboardController::class, 'index'])->name('dashboard');
+        Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
         // Route::prefix('admins')->name('admins.')->group(function () {
 
         // });

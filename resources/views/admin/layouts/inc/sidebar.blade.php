@@ -1,43 +1,31 @@
-<div class="sidebar pe-4 pb-3">
-    <nav class="navbar bg-light navbar-light">
-        <a href="#" class="navbar-brand mx-4 mb-3">
-            {!! site_logo() !!}
+<aside
+    class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3  @if($direction == 'rtl') fixed-end me-3 rotate-caret @else fixed-start ms-3  @endif bg-gradient-dark  "
+    id="sidenav-main">
+    <div class="sidenav-header">
+        <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
+            aria-hidden="true" id="iconSidenav"></i>
+        <a class="navbar-brand m-0" href=" https://demos.creative-tim.com/material-dashboard/pages/dashboard "
+            target="_blank">
+            <img src="{{ admin_asset() }}/assets/img/logo-ct.png" class="navbar-brand-img h-100" alt="main_logo">
+            <span class="ms-1 font-weight-bold text-white">{{ project_name() }}</span>
         </a>
-        <div class="d-flex align-items-center ms-4 mb-4">
-            <div class="position-relative">
-                <img class="rounded-circle" src="{{ admin_asset('img/user.jpg') }}" alt="" style="width: 40px; height: 40px;">
-                <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
-            </div>
-            <div class="ms-3">
-                <h6 class="mb-0">{{ auth()->guard('admin')->user()->name }}</h6>
-                <span>Admin</span>
-            </div>
+    </div>
+    <hr class="horizontal light mt-0 mb-2">
+    <div class="collapse navbar-collapse  w-auto  max-height-vh-100" id="sidenav-collapse-main">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link text-white active bg-gradient-primary" href="{{route('admin.dashboard')}}">
+                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="fa fa-desktop"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">{{__('admin.Dashboard')}}</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    {{-- <div class="sidenav-footer position-absolute w-100 bottom-0 ">
+        <div class="mx-3">
+            <a class="btn bg-gradient-primary mt-4 w-100" href="#" type="button">Upgrade to pro</a>
         </div>
-        <div class="navbar-nav w-100">
-            <a href="#" class="nav-item nav-link {{ Request::is('admin/dashboard') ? 'active' : '' }}">
-                <i class="fa fa-tachometer-alt me-2"></i>Dashboard
-            </a>
-            <a href="#" class="nav-item nav-link {{ Request::is('admin/staff*') ? 'active' : '' }}">
-                <i class="fa fa-users me-2"></i>Manage Staff
-            </a>
-            <a href="#" class="nav-item nav-link {{ Request::is('admin/owners*') ? 'active' : '' }}">
-                <i class="fa fa-user-tie me-2"></i>Owners
-            </a>
-            <a href="#" class="nav-item nav-link {{ Request::is('admin/properties*') ? 'active' : '' }}">
-                <i class="fa fa-building me-2"></i>Properties
-            </a>
-            <a href="#" class="nav-item nav-link {{ Request::is('admin/tenants*') ? 'active' : '' }}">
-                <i class="fa fa-user me-2"></i>Tenants
-            </a>
-            <a href="#" class="nav-item nav-link {{ Request::is('admin/payments*') ? 'active' : '' }}">
-                <i class="fa fa-chart-bar me-2"></i>Payments
-            </a>
-            <a href="#" class="nav-item nav-link {{ Request::is('admin/reports*') ? 'active' : '' }}">
-                <i class="fa fa-file-alt me-2"></i>Reports
-            </a>
-            <a href="#" class="nav-item nav-link {{ Request::is('admin/settings*') ? 'active' : '' }}">
-                <i class="fa fa-cogs me-2"></i>Settings
-            </a>
-        </div>
-    </nav>
-</div>
+    </div> --}}
+</aside>

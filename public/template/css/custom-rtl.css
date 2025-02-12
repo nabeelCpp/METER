@@ -1,0 +1,19 @@
+body.rtl-mode {
+    direction: rtl;
+    text-align: right;
+}
+
+.sidebar {
+    right: 0;
+    left: auto;
+}
+
+.content {
+    margin-left: 0;
+    margin-right: 250px; /* Adjust according to sidebar width */
+}
+
+.navbar .dropdown-menu {
+    right: 0;
+    left: auto;
+}
