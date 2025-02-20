@@ -190,5 +190,13 @@ return [
     */
 
     'attributes' => [],
+    'The first name field is required.' => 'The first name field is required.',
+    'The email field is required.' => 'The email field is required.',
+    'The phone field is required.' => 'The phone field is required.',
+    'The aqama cnic id field is required.' => 'The aqama cnic id field is required.',
+    'The password field is required.' => 'The password field is required.',
+    'The password field must be at least 8 characters.' => 'The password field must be at least 8 characters.',
+    'The phone has already been taken.' => 'The phone has already been taken.',
+    'The aqama cnic id has already been taken.' => 'The aqama cnic id has already been taken.',
 
 ];

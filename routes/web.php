@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\{AdminController, AuthController as AdminAuthController, Dashboard as AdminDashboardController};
+use App\Http\Controllers\Owner\OwnerController;
 use App\Http\Controllers\Superadmin\{AuthController as SuperAdminAuthController, Dashboard as SuperadminDashboardController};
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
@@ -48,8 +49,6 @@ Route::prefix('admin')->as('admin.')->middleware('locale')->group(function () {
     Route::middleware('guest.custom:admin')->post('/login', [AdminAuthController::class, 'login'])->name('login.submit');
     Route::middleware('auth.custom:admin')->group(function () {
         Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
-        // Route::prefix('admins')->name('admins.')->group(function () {
-
-        // });
+        Route::resource('owners', OwnerController::class);
     });
 });

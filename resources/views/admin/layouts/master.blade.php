@@ -20,7 +20,7 @@
     <link rel="apple-touch-icon" sizes="76x76" href="{{ admin_asset() }}/assets/img/apple-icon.png">
     <link rel="icon" type="image/png" href="{{ admin_asset() }}/assets/img/favicon.png">
     <title>
-        {{ project_name() }} - Admin Dashboard
+        {{ project_name() }} - {{__('admin.Admin Dashboard')}}
     </title>
     <!--     Fonts and icons     -->
     <link rel="stylesheet" type="text/css"
@@ -66,6 +66,7 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="{{ admin_asset() }}/assets/js/material-dashboard.min.js?v=3.0.0"></script>
+    @stack('script')
 </body>
 
 </html>

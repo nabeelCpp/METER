@@ -1,9 +1,14 @@
 <?php
 
 use App\Models\Admin;
+use App\Models\Owner;
+use Illuminate\Support\Facades\App;
 
 if(!function_exists('project_name')) {
     function project_name() {
+        if(App::getLocale() == 'ar') {
+            return 'ميتر';
+        }
         return env('APP_NAME');
     }
 }
@@ -36,4 +41,55 @@ if(!function_exists('admin_asset')) {
     function admin_asset($path = null) {
         return asset('admin/'.$path);
     }
+}
+
+if(!function_exists('owner_status')) {
+    function owner_status() {
+        return Owner::STATUS_VALUES;
+    }
+}
+
+
+if(!function_exists('owner_status_verified')) {
+    /**
+     * Get the verified status of the owner
+     * @return string
+     * @see Owner::STATUS_VERIFIED
+     */
+    function owner_status_verified() : string {
+        return Owner::STATUS_VERIFIED;
+    }
+}
+
+if(!function_exists('owner_status_pending')) {
+    /**
+     * Get the pending status of the owner
+     * @return string
+     * @see Owner::STATUS_PENDING
+     */
+    function owner_status_pending() : string {
+        return Owner::STATUS_PENDING;
+    }
+}
+
+if(!function_exists('owner_status_suspended')) {
+    /**
+     * Get the suspended status of the owner
+     * @return string
+     * @see Owner::STATUS_PENDING
+     */
+    function owner_status_suspended() : string {
+        return Owner::STATUS_PENDING;
+    }
+}
+
+/**
+ * Customize Date Format
+ * @param string $date
+ * @param string|null $format default is 'd-m-Y'
+ * @return string
+ * @see \Carbon\Carbon::format()
+ */
+function format_date(string $date, ?string $format = 'd-m-Y') : string {
+    return \Carbon\Carbon::parse($date)->format($format);
 }
