@@ -93,3 +93,9 @@ if(!function_exists('owner_status_suspended')) {
 function format_date(string $date, ?string $format = 'd-m-Y') : string {
     return \Carbon\Carbon::parse($date)->format($format);
 }
+
+/**
+ * Get the global pagination value
+ * @return int
+ */
+CONST GLOBAL_PAGINATION = 10;

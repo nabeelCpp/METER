@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Admin\{AdminController, AuthController as AdminAuthController, Dashboard as AdminDashboardController};
+use App\Http\Controllers\Admin\{AdminController, AuthController as AdminAuthController, Dashboard as AdminDashboardController, BuildingController};
 use App\Http\Controllers\Owner\OwnerController;
 use App\Http\Controllers\Superadmin\{AuthController as SuperAdminAuthController, Dashboard as SuperadminDashboardController};
 use Illuminate\Support\Facades\App;
@@ -50,5 +50,7 @@ Route::prefix('admin')->as('admin.')->middleware('locale')->group(function () {
     Route::middleware('auth.custom:admin')->group(function () {
         Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
         Route::resource('owners', OwnerController::class);
+        Route::resource('buildings', BuildingController::class);
+        Route::resource('apartments', BuildingController::class);
     });
 });

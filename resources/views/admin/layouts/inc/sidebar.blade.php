@@ -37,6 +37,36 @@
                     <span class="nav-link-text ms-1">{{ __('admin.Owners') }}</span>
                 </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link text-white {{ request()->routeIs('admin.buildings.*') || request()->routeIs('admin.apartments.*') ? 'active bg-gradient-primary' : '' }}"
+                   data-bs-toggle="collapse" href="#buildingsMenu" role="button" aria-expanded="false" aria-controls="buildingsMenu">
+                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="fa fa-building"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">{{ __('admin.Buildings') }}</span>
+                </a>
+                <div class="collapse {{ request()->routeIs('admin.buildings.*') || request()->routeIs('admin.apartments.*') ? 'show' : '' }}" id="buildingsMenu">
+                    <ul class="nav flex-column ms-3">
+                        <li class="nav-item">
+                            <a class="nav-link text-white {{ request()->routeIs('admin.buildings.*') ? 'active bg-gradient-primary' : '' }}"
+                               href="{{ route('admin.buildings.index') }}">
+                               <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                    <i class="fa fa-city"></i>
+                                </div>{{ __('admin.All Buildings') }}
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white {{ request()->routeIs('admin.apartments.*') ? 'active bg-gradient-primary' : '' }}"
+                               href="{{ route('admin.apartments.index') }}">
+                               <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                    <i class="fa fa-door-open"></i>
+                                </div>{{ __('admin.Apartments') }}
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+
         </ul>
     </div>
 </aside>

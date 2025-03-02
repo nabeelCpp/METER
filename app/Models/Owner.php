@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Hash;
 
 class Owner extends Model
@@ -93,6 +94,39 @@ class Owner extends Model
         }
         $owner->save();
         return $owner;
+    }
+
+    /**
+     * Get owners data
+     * @param array $where
+     * @param array $props
+     * @return Collection
+     */
+    public static function getDetails(array $where = [], array $props = []) : Collection {
+        $query = Owner::query();
+        if (!empty($where)) {
+            $query->where($where);
+        }
+        if(isset($props['paginate']) && $props['paginate'] ) {
+            return $query->paginate(self::PAGINATE);
+        }
+        return $query->get();
+    }
+
+    /**
+     * Fetch owner's id and name as key value pair
+     * @return array
+     * @version 1.0.0
+     * @since 2025-02-27
+     * @author M Nabeel Arshad
+     */
+    public static function getKeyValuePairs() : array {
+        $owners = Owner::getDetails();
+        $arr = [];
+        foreach ($owners as $key => $owner) {
+            $arr[$owner->id] = trim($owner->first_name.' '.$owner->last_name);
+        }
+        return $arr;
     }
 
 
