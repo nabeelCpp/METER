@@ -6,7 +6,7 @@
             <div class="col-md-6 mx-auto">
                 <div class="card card-plain">
                     <div class="card-header">
-                        <h4 class="font-weight-bolder">{{ __(isset($owner) ? 'admin.Update Building' : 'admin.Add New Building') }}</h4>
+                        <h4 class="font-weight-bolder">{{ __(isset($building) ? 'admin.Update Building' : 'admin.Add New Building') }}</h4>
                         <p class="mb-0">{{ __('admin.Enter Building details to create or update a new Building') }}</p>
                     </div>
                     <div class="card-body">

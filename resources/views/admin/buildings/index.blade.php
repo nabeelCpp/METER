@@ -25,14 +25,16 @@
                             :columns="[
                                 __('admin.Name') => fn($building) => $building->name,
                                 __('admin.Address') => fn($building) => $building->address.'<br><b>City:</b> '.$building->city.'<br><b>State:</b> '.$building->state.'<br><b>Post Code:</b> '.$building->postal_code.'<br><b>Country:</b> '.$building->country,
-                                __('admin.Owner') => fn($building) => '<a href=\''.route('admin.owners.edit', $building->owner_id).'\'>'.$building->owner->first_name.' '.$building->owner->last_name.'</a>',
+                                __('admin.Owner') => fn($building) => '<a href=\''.route('admin.owners.show', $building->owner_id).'\'>'.$building->owner->first_name.' '.$building->owner->last_name.'</a>',
                                 __('admin.Total Floors') => fn($building) => $building->number_of_floors,
                                 __('admin.Total Units') => fn($building) => $building->total_units,
                                 __('admin.Status') => fn($building) => $building->status == $building::STATUS_ACTIVE ? '<span class=\'badge badge-sm bg-gradient-success\'>'.__('admin.Active').'</span>' : '<span class=\'badge badge-sm bg-gradient-danger\'>'.__('admin.Inactive').'</span>'
                             ]"
                             :actions="[
-                                ['label' => __('admin.Edit'), 'icon' => 'fa fa-edit', 'url' => fn($id) => route('admin.buildings.edit', $id)],
-                                ['label' => __('admin.Delete'), 'icon' => 'fa fa-trash', 'onclick' => fn($building) => 'confirmDelete(\''. route('admin.buildings.destroy', $building).'\', \'' . __('admin.Delete Building?') . '\')'],
+                                ['label' => __('admin.View'), 'icon' => 'fa fa-eye', 'url' => fn($id) => route('admin.buildings.show', $id), 'class' => 'btn-info'],
+                                ['label' => __('admin.Edit'), 'icon' => 'fa fa-edit', 'url' => fn($id) => route('admin.buildings.edit', $id), 'class' => 'btn-secondary'],
+                                ['label' => __('admin.Delete'), 'icon' => 'fa fa-trash', 'onclick' => fn($building) => 'confirmDelete(\''. route('admin.buildings.destroy', $building).'\', \'' . __('admin.Delete Building?') . '\')', 'class' => 'btn-danger'],
+                                ['label' => __('admin.Appartments'), 'icon' => 'fa fa-building', 'url' => fn($id) => '#', 'class' => 'btn-primary'],
                             ]"
                             :pagination="$buildings"
                         />

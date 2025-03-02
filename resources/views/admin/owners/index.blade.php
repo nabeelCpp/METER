@@ -35,6 +35,12 @@
                             ]"
                             :actions="[
                                 [
+                                    'label' => __('admin.View'),
+                                    'icon' => 'fa fa-eye',
+                                    'class' => 'btn-primary',
+                                    'url' => fn($owner) => route('admin.owners.show', $owner),
+                                ],
+                                [
                                     'label' => __('admin.Edit'),
                                     'icon' => 'fa fa-edit',
                                     'class' => 'btn-info',

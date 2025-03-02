@@ -84,4 +84,9 @@ return [
     'Select' => 'Select',
     'Active' => 'Active',
     'Inactive' => 'Inactive',
+    'View' => 'View',
+    'Building Details' => 'Building Details',
+    'Back' => 'Back',
+    'Owner Details' => 'Owner Details',
+    'Appartments' => 'Appartments',
 ];

@@ -83,5 +83,10 @@ return [
     'Select' => 'اختر',
     'Active' => 'نشط',
     'Inactive' => 'غير نشط',
+    'View' => 'عرض',
+    'Building Details' => 'تفاصيل المبنى',
+    'Back' => 'رجوع',
+    'Owner Details' => 'تفاصيل المالك',
+    'Appartments' => 'الشقق',
 
 ];

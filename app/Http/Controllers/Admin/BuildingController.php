@@ -51,9 +51,9 @@ class BuildingController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Building $building)
     {
-        //
+        return view('admin.buildings.show', compact('building'));
     }
 
     /**
