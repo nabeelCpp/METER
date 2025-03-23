@@ -1,5 +1,6 @@
 <?php
 
+use App\Helpers\CurrencyHelper;
 use App\Models\Admin;
 use App\Models\Owner;
 use Illuminate\Support\Facades\App;
@@ -99,3 +100,64 @@ function format_date(string $date, ?string $format = 'd-m-Y') : string {
  * @return int
  */
 CONST GLOBAL_PAGINATION = 10;
+
+/**
+ * format currency
+ * @param float|int $amount
+ * @param string $currency
+ * @return string
+ * @see CurrencyHelper::formatCurrency()
+ * @since 2025-03-15
+ * @version 1.0.0
+ * @author M Nabeel Arshad
+ */
+function format_currency(float|int $amount, string $currency = CurrencyHelper::SAR_CURRENCY_CODE) : string {
+    return CurrencyHelper::formatCurrency($amount, $currency);
+}
+
+/**
+ * String pad left
+ * @param string $string
+ * @param int $length
+ * @param string $padString
+ * @return string
+ * @since 2025-03-15
+ * @version 1.0.0
+ * @author M Nabeel Arshad
+ */
+function str_pad_left(string $string, int $length, string $padString = '0') : string {
+    return str_pad($string, $length, $padString, STR_PAD_LEFT);
+}
+
+/**
+ * Read CSV file
+ * @param $file
+ * @return array
+ * @since 2025-03-15
+ * @version 1.0.0
+ * @author M Nabeel Arshad
+ */
+function csv_to_array($file) : array
+{
+    $rows = array_map('str_getcsv', file($file->getPathname()));
+    $header = array_shift($rows); // Get the first row as header
+    return array_map(fn ($row) => array_combine($header, $row), $rows);
+}
+
+/**
+ * Read Excel file
+ * @param $file
+ * @return array
+ * @since 2025-03-15
+ * @version 1.0.0
+ * @author M Nabeel Arshad
+ *
+ */
+function excel_to_array($file) : array
+{
+    $spreadsheet = \PhpOffice\PhpSpreadsheet\IOFactory::load($file->getPathname());
+    $sheet = $spreadsheet->getActiveSheet()->toArray(null, true, true, true);
+
+    $header = array_shift($sheet); // Get the first row as header
+    return array_map(fn ($row) => array_combine($header, $row), $sheet);
+}

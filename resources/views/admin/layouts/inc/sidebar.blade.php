@@ -55,14 +55,14 @@
                                 </div>{{ __('admin.All Buildings') }}
                             </a>
                         </li>
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a class="nav-link text-white {{ request()->routeIs('admin.apartments.*') ? 'active bg-gradient-primary' : '' }}"
                                href="{{ route('admin.apartments.index') }}">
                                <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                                     <i class="fa fa-door-open"></i>
                                 </div>{{ __('admin.Apartments') }}
                             </a>
-                        </li>
+                        </li> --}}
                     </ul>
                 </div>
             </li>

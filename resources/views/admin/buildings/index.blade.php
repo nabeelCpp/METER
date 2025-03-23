@@ -34,7 +34,7 @@
                                 ['label' => __('admin.View'), 'icon' => 'fa fa-eye', 'url' => fn($id) => route('admin.buildings.show', $id), 'class' => 'btn-info'],
                                 ['label' => __('admin.Edit'), 'icon' => 'fa fa-edit', 'url' => fn($id) => route('admin.buildings.edit', $id), 'class' => 'btn-secondary'],
                                 ['label' => __('admin.Delete'), 'icon' => 'fa fa-trash', 'onclick' => fn($building) => 'confirmDelete(\''. route('admin.buildings.destroy', $building).'\', \'' . __('admin.Delete Building?') . '\')', 'class' => 'btn-danger'],
-                                ['label' => __('admin.Appartments'), 'icon' => 'fa fa-building', 'url' => fn($id) => '#', 'class' => 'btn-primary'],
+                                ['label' => __('admin.Appartments'), 'icon' => 'fa fa-building', 'url' => fn($id) => route('admin.buildings.apartments.index', $id), 'class' => 'btn-primary'],
                             ]"
                             :pagination="$buildings"
                         />

@@ -14,18 +14,21 @@ return new class extends Migration
     {
         Schema::create('apartments', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('building_id')->constrained('buildings')->cascadeOnDelete();
-            $table->foreignId('tenant_id')->nullable();
-            // $table->foreignId('tenant_id')->nullable()->constrained('tenants')->nullOnDelete();
-            $table->string('name');
-            $table->integer('floor_number');
-            $table->integer('number_of_rooms');
-            $table->integer('number_of_bathrooms');
+            $table->unsignedBigInteger('building_id'); // Relationship to Buildings
+            $table->integer('floor_number'); // Helps in categorizing per floor
+            $table->string('apartment_number'); // Unique per floor
+            $table->integer('rooms')->nullable(); // Can be different per apartment
+            $table->integer('bathrooms')->nullable();
+            $table->decimal('rent', 10, 2); // Monthly Rent
             $table->integer('size_sqft');
-            $table->decimal('rent_price', 10, 2);
             $table->decimal('yearly_discount', 10, 2)->nullable();
-            $table->tinyInteger('status')->default(Apartment::STATUS_VACANT); // 0 = Vacant, 1 = Rented
+            $table->tinyInteger('is_available')->default(Apartment::STATUS_VACANT)->comment('1: Vacant, 0: Rented'); // 0 = Vacant, 1 = Rented
+            $table->tinyInteger('status')->default(Apartment::STATUS_ACTIVE)->comment('0: inactive, 1: active'); // 0 = Inactive, 1 = Active
             $table->timestamps();
+            $table->softDeletes();
+
+            $table->foreign('building_id')->references('id')->on('buildings')->onDelete('cascade');
+
         });
     }
 

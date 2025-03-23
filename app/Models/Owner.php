@@ -100,9 +100,8 @@ class Owner extends Model
      * Get owners data
      * @param array $where
      * @param array $props
-     * @return Collection
      */
-    public static function getDetails(array $where = [], array $props = []) : Collection {
+    public static function getDetails(array $where = [], array $props = []) {
         $query = Owner::query();
         if (!empty($where)) {
             $query->where($where);

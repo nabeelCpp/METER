@@ -35,6 +35,8 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
     <!-- CSS Files -->
     <link id="pagestyle" href="{{ admin_asset() }}/assets/css/material-dashboard.css?v=3.0.0" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    @stack('css')
 </head>
 
 <body class="g-sidenav-show {{$direction}} bg-gray-200">

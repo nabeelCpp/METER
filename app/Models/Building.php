@@ -37,6 +37,11 @@ class Building extends Model
         return $this->hasMany(Apartment::class);
     }
 
+    public function setAdminIdAttribute()
+    {
+        $this->attributes['admin_id'] = auth()->guard('admin')->user()->id;
+    }
+
     /**
      * Save Details
      * @param self $building
@@ -61,9 +66,8 @@ class Building extends Model
      * Get data
      * @param array $where
      * @param array $props
-     * @return Collection
      */
-    public static function getDetails(array $where = [], array $props = []) : Collection {
+    public static function getDetails(array $where = [], array $props = []) {
         $query = Building::query();
         if (!empty($where)) {
             $query->where($where);
