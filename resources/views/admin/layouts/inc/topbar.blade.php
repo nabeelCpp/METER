@@ -25,14 +25,10 @@
                     </div>
                 </div>
                 <div class="nav-item dropdown">
-                    <a href="#" class="nav-link" data-bs-toggle="dropdown">
+                    <a href="{{ route('lang.switch', app()->getLocale() == 'en' ? 'ar' : 'en') }}" class="nav-link">
                         <i class="fa fa-globe me-lg-2"></i>
-                        <span class="d-none d-lg-inline-flex">{{ app()->getLocale() == 'ar' ? 'العربية' : 'English' }}</span>
+                        <span class="d-none d-lg-inline-flex">{{ app()->getLocale() == 'en' ? 'العربية' : 'English' }}</span>
                     </a>
-                    <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
-                        <a href="{{ route('lang.switch', 'en') }}" class="dropdown-item">English</a>
-                        <a href="{{ route('lang.switch', 'ar') }}" class="dropdown-item">العربية</a>
-                    </div>
                 </div>
                 <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
                     <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
