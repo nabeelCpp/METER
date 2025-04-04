@@ -126,6 +126,20 @@ return [
     'Apartment deleted successfully.' => 'Apartment deleted successfully.',
     'All apartments deleted successfully.' => 'All apartments deleted successfully.',
     'Are you sure you want to delete all apartments for this building?' => 'Are you sure you want to delete all apartments for this building?',
-    'Delete All Apartments' => 'Delete All Apartments'
+    'Delete All Apartments' => 'Delete All Apartments',
+    'Tenant' => 'Tenant',
+    'Create Tenant' => 'Create Tenant',
+    'Tenants' => 'Tenants',
+    'Tenants List' => 'Tenants List',
+    'Add Tenant' => 'Add Tenant',
+    'Delete Tenant?' => 'Are you sure you want to delete this tenant?',
+    'Enter tenant details to create a new tenant' => 'Enter tenant details to create a new tenant',
+    'Gender' => 'Gender',
+    'Nationality' => 'Nationality',
+    'Tenant created successfully.' => 'Tenant created successfully.',
+    'Tenant updated successfully.' => 'Tenant updated successfully.',
+    'Tenant deleted successfully.' => 'Tenant deleted successfully.',
+    'Tenant Details' => 'Tenant Details',
+
 
 ];

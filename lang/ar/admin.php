@@ -124,6 +124,19 @@ return [
     'Apartment updated successfully.' => 'تم تحديث الشقة بنجاح.',
     'All apartments deleted successfully.' => 'تم حذف جميع الشقق بنجاح.',
     'Are you sure you want to delete all apartments for this building?' => 'هل أنت متأكد أنك تريد حذف جميع الشقق لهذا المبنى؟',
-    'Delete All Apartments' => 'حذف جميع الشقق'
+    'Delete All Apartments' => 'حذف جميع الشقق',
+    'Tenant' => 'المستأجر',
+    'Tenants' => 'المستأجرين',
+    'Create Tenant' => 'إنشاء مستأجر',
+    'Tenants List' => 'قائمة المستأجرين',
+    'Add Tenant' => 'إضافة مستأجر',
+    'Delete Tenant?' => 'هل أنت متأكد أنك تريد حذف هذا المستأجر؟',
+    'Gender' => 'الجنس',
+    'Nationality' => 'الجنسية',
+    'Tenant deleted successfully!' => 'تم حذف المستأجر بنجاح!',
+    'Enter tenant details to create a new tenant' => 'أدخل تفاصيل المستأجر لإنشاء مستأجر جديد',
+    'Tenant created successfully.' => 'تمت إضافة المستأجر بنجاح!',
+    'Tenant updated successfully.' => 'تم تحديث المستأجر بنجاح!',
+    'Tenant Details' => 'تفاصيل المستأجر',
 
 ];

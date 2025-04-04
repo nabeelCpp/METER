@@ -19,6 +19,20 @@
                     @enderror
                 </div>
             </div>
+        @elseif($field['type'] === 'checkbox')
+            <div class="{{ $field['class'] ?? 'col-md-12' }}">
+                <div class="form-check form-switch ps-0 is-filled">
+                    <input class="form-check-input ms-auto" type="checkbox" id="{{ $name }}" name="{{ $name }}"
+                        {{ old($name, $model->$name ?? $field['value'] ?? false) ? 'checked' : '' }}
+                        {{ $field['attributes'] ?? '' }}>
+                    <label class="form-check-label text-body ms-3 text-truncate w-80 mb-0" for="{{ $name }}">
+                        {{ $field['label'] }}
+                    </label>
+                    @error($name)
+                        <span class="text-danger text-sm">{{ $message }}</span>
+                    @enderror
+                </div>
+            </div>
         @else
             <div class="{{ $field['class'] ?? 'col-md-12' }}">
                 <div class="mb-3">

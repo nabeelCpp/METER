@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Admin\{AdminController, AuthController as AdminAuthController, Dashboard as AdminDashboardController, BuildingController, AppartmentController};
+use App\Http\Controllers\Admin\{AdminController, AuthController as AdminAuthController, Dashboard as AdminDashboardController, BuildingController, AppartmentController, TenantController};
 use App\Http\Controllers\Owner\OwnerController;
 use App\Http\Controllers\Superadmin\{AuthController as SuperAdminAuthController, Dashboard as SuperadminDashboardController};
 use Illuminate\Support\Facades\App;
@@ -54,5 +54,6 @@ Route::prefix('admin')->as('admin.')->middleware('locale')->group(function () {
         Route::resource('buildings.apartments', AppartmentController::class);
         Route::delete('buildings/{building}/apartments/delete-all', [AppartmentController::class, 'deleteAll'])->name('buildings.apartments.deleteAll');
         Route::post('buildings/{building}/apartments/bulk-upload', [AppartmentController::class, 'bulkUpload'])->name('buildings.apartments.bulk-upload');
+        Route::resource('tenants', TenantController::class);
     });
 });
